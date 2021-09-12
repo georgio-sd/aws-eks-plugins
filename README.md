@@ -6,6 +6,7 @@ This is a set of EKS plugin scripts which will allow you to install and delete E
 - **ebs-csi.sh** Installs EBS-CSI Driver
 - **efs-csi.sh** Installs EFS-CSI Driver
 - **cont-insights-fluent-bit.sh** Installs Container Insights
+<br>
 
 - **aws-lbc-del.sh** Deletes the AWS Load Balancer Controller
 - **cluster-autoscaler-del.sh** Deletes the Cluster Autoscaller
