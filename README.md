@@ -36,4 +36,7 @@ ebs-csi.sh my-cluster
 ebs-csi-del.sh my-cluster
 cluster-autoscaler-del.sh my-cluster us-west-2
 ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> 58d2613449ad3f1c5cc7b9ac4a9f050566f07067
