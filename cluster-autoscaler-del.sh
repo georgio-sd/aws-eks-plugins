@@ -1,7 +1,7 @@
 #!/bin/bash -x
 #
 # -----------------------------------------------------------------------------
-# Cluster Autoscaler deletion script v0.1
+# Cluster Autoscaler deletion script v0.2
 # -----------------------------------------------------------------------------
 # Deletes current Cluster Autoscaler installation (if it exists)
 # Developed by Sam Stewart @babaiant
@@ -17,10 +17,8 @@ fi
 #------------------------------------------------------------------------------
 # Getting region and account number
 #
-if [ "$2" != "no-iam" ] && [ "$2" != "" ]; then
+if [ "$2" != "" ]; then
   REGION="$2"
-elif [ "$3" != "no-iam" ] && [ "$3" != "" ]; then
-  REGION="$3"
 else
   REGION=$(aws configure get region)
 fi
@@ -35,8 +33,6 @@ set +e
 #
 curl -o /tmp/cluster-autoscaler.yaml \
   https://raw.githubusercontent.com/kubernetes/autoscaler/master/cluster-autoscaler/cloudprovider/aws/examples/cluster-autoscaler-autodiscover.yaml
-
-sed -i -z "s/---/@/g; s/[^@]*\nkind: ServiceAccount[^@]*@//g; s/@/---/g" /tmp/cluster-autoscaler.yaml
 kubectl delete -f /tmp/cluster-autoscaler.yaml
 #------------------------------------------------------------------------------
 # Deleting service acount and IAM role
